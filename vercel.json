@@ -1,0 +1,14 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "regions": ["nrt1"],
+  "functions": {
+    "pages/**/*.js": {
+      "memory": 1024
+    },
+    "app/**/*.js": {
+      "memory": 1024
+    }
+  }
+}

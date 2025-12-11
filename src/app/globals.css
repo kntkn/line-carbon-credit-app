@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Noto Sans JP', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'palt';
+  }
+
+  body {
+    font-feature-settings: 'palt';
+    letter-spacing: -0.003em;
+    background: #f8fafc;
+  }
+
+  /* スクロールバーをmacOS Safariスタイルに */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  /* LINEスタイルのセレクションカラー */
+  ::selection {
+    background: #06C755;
+    color: white;
+  }
+}
+
+@layer components {
+  .line-button {
+    @apply bg-line-green hover:bg-line-green-dark active:scale-95 text-white font-medium rounded-lg transition-all duration-150 ease-out;
+  }
+
+  .line-card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden backdrop-blur-sm;
+  }
+
+  .line-input {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-line-green focus:border-transparent transition-all duration-200;
+  }
+
+  .carbon-gradient {
+    background: linear-gradient(135deg, #16A34A 0%, #22C55E 50%, #84CC16 100%);
+  }
+
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/80 border border-white/20;
+  }
+
+  /* スワイプ操作のビジュアルフィードバック */
+  .swipe-track {
+    @apply relative h-14 w-full rounded-full bg-gradient-to-r from-gray-100 to-gray-200 shadow-inner overflow-hidden;
+  }
+
+  .swipe-thumb {
+    @apply absolute top-1 left-1 h-12 w-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-600 transition-transform duration-75 ease-out;
+  }
+
+  .swipe-progress {
+    @apply absolute inset-0 bg-gradient-to-r from-carbon-primary to-carbon-secondary transition-transform duration-75 ease-out;
+  }
+
+  /* バーコードコンテナ */
+  .barcode-container {
+    @apply bg-white p-6 rounded-xl border-2 border-dashed border-gray-300 text-center;
+  }
+
+  /* アニメーション用クラス */
+  .animate-in {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-out {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  /* LINEチャット風レイアウト */
+  .chat-bubble {
+    @apply max-w-[85%] p-3 rounded-2xl shadow-sm;
+  }
+
+  .chat-bubble-bot {
+    @apply bg-white text-gray-800 rounded-tl-md;
+  }
+
+  .chat-bubble-user {
+    @apply bg-line-message text-gray-800 rounded-tr-md ml-auto;
+  }
+
+  /* リッチメニューボタン */
+  .rich-menu-button {
+    @apply bg-white border border-gray-200 rounded-xl p-4 flex flex-col items-center justify-center gap-2 hover:bg-gray-50 active:scale-95 transition-all duration-150 relative overflow-hidden;
+  }
+
+  .rich-menu-button::after {
+    content: '';
+    @apply absolute bottom-1 right-1 w-2 h-2 rotate-45;
+  }
+
+  .rich-menu-primary::after {
+    @apply bg-emerald-200;
+  }
+
+  .rich-menu-secondary::after {
+    @apply bg-yellow-200;
+  }
+}
