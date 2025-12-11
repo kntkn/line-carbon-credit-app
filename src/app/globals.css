@@ -2,20 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   html {
-    font-family: 'Noto Sans JP', system-ui, sans-serif;
+    font-family: 'Inter', 'Space Grotesk', 'Noto Sans JP', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-feature-settings: 'palt';
+    font-feature-settings: 'palt', 'kern', 'liga', 'clig', 'calt';
   }
 
   body {
-    font-feature-settings: 'palt';
-    letter-spacing: -0.003em;
+    font-feature-settings: 'palt', 'kern', 'liga';
+    letter-spacing: -0.01em;
     background: #f8fafc;
+    line-height: 1.6;
   }
 
   /* スクロールバーをmacOS Safariスタイルに */
@@ -45,19 +46,37 @@
 
 @layer components {
   .line-button {
-    @apply bg-line-green hover:bg-line-green-dark active:scale-95 text-white font-medium rounded-lg transition-all duration-150 ease-out;
+    @apply bg-carbon-primary hover:bg-carbon-secondary active:scale-95 text-white font-medium rounded-xl px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 ease-out relative overflow-hidden;
+  }
+  
+  .line-button::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -translate-x-full transition-transform duration-700;
+  }
+  
+  .line-button:hover::before {
+    @apply translate-x-full;
   }
 
   .line-card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden backdrop-blur-sm;
+    @apply bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 overflow-hidden relative;
+  }
+  
+  .line-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-carbon-primary/5 pointer-events-none;
   }
 
   .line-input {
-    @apply w-full px-4 py-3 border border-gray-200 rounded-lg bg-white/90 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-line-green focus:border-transparent transition-all duration-200;
+    @apply w-full px-5 py-4 border-2 border-gray-200 rounded-xl bg-white/90 backdrop-blur-sm focus:outline-none focus:ring-4 focus:ring-carbon-accent/20 focus:border-carbon-accent transition-all duration-300 shadow-sm hover:shadow-md font-medium;
   }
 
   .carbon-gradient {
-    background: linear-gradient(135deg, #16A34A 0%, #22C55E 50%, #84CC16 100%);
+    background: linear-gradient(135deg, #064E3B 0%, #065F46 35%, #059669 70%, #10B981 100%);
+  }
+  
+  .forest-gradient {
+    background: linear-gradient(135deg, #1F2937 0%, #374151 50%, #4B5563 100%);
   }
 
   .glass-effect {

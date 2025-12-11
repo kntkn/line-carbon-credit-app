@@ -56,33 +56,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 via-gray-50 to-white flex items-center justify-center p-4">
-      {/* デスクトップ用の説明テキスト */}
-      <div className="hidden lg:block absolute top-8 left-8 max-w-md">
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
-            Decopon LINEミニアプリ
-          </h1>
-          <p className="text-gray-700 leading-relaxed mb-4">
-            カーボンクレジットをクーポンに交換できるLINEミニアプリのプロトタイプです。
-            iPhone風のフレームでネイティブな操作感を体験できます。
-          </p>
-          <div className="space-y-2 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full" />
-              スワイプでクーポン引き換え
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-blue-500 rounded-full" />
-              ワンタイムバーコード生成
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-purple-500 rounded-full" />
-              LINEライクなUI/UX
-            </div>
-          </div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-emerald-900 via-green-800 to-teal-900 flex items-center justify-center p-4 relative overflow-hidden">
+      {/* 背景エフェクト */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="w-full h-full bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M30%2030c0-11.046-8.954-20-20-20s-20%208.954-20%2020%208.954%2020%2020%2020%2020-8.954%2020-20z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]" />
       </div>
+      
+      {/* グラデーションオーバーレイ */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-emerald-500/5 to-transparent" />
 
       {/* メインアプリケーション */}
       <IPhoneFrame className="shadow-2xl">
@@ -140,18 +121,6 @@ export default function Home() {
           </AnimatePresence>
         </div>
       </IPhoneFrame>
-
-      {/* モバイル用の説明テキスト */}
-      <div className="lg:hidden absolute bottom-4 left-4 right-4">
-        <div className="bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg text-center">
-          <p className="text-sm text-gray-700">
-            📱 LINEミニアプリプロトタイプ
-          </p>
-          <p className="text-xs text-gray-500 mt-1">
-            カーボンクレジット × クーポン交換
-          </p>
-        </div>
-      </div>
     </div>
   );
 }

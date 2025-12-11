@@ -12,14 +12,22 @@ module.exports = {
         line: {
           green: '#06C755',
           'green-dark': '#05A346',
-          'bg': '#E5EDF3',
+          'bg': '#F8FAFC',
           'message': '#9FE870'
         },
         carbon: {
-          primary: '#16A34A',
-          secondary: '#22C55E', 
-          accent: '#84CC16',
-          dark: '#15803D'
+          primary: '#064E3B',
+          secondary: '#065F46', 
+          accent: '#059669',
+          light: '#10B981',
+          forest: '#1F2937',
+          sage: '#6B7280'
+        },
+        luxury: {
+          gold: '#F59E0B',
+          silver: '#9CA3AF',
+          platinum: '#E5E7EB',
+          copper: '#D97706'
         }
       },
       fontFamily: {
